@@ -1,4 +1,6 @@
 import React from "react";
+// CSS
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends React.Component {
   render() {
