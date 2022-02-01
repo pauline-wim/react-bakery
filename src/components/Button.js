@@ -6,8 +6,9 @@ class Button extends React.Component {
   render() {
     return (
       <button
+        className="btn border-dark m-4"
         style={{
-          backgroundColor: this.props.isSelected ? "blue" : "transparent",
+          backgroundColor: this.props.isSelected ? "violet" : "transparent",
         }}
         onClick={this.props.onClick}
       >

@@ -7,8 +7,7 @@ class Pay extends React.Component {
     return (
       <div>
         <form className={this.props.onPay}>
-          <input type="text" name="" id="" placeholder="List" />
-          <input type="text" name="" id="" placeholder="List" />
+          <input type="text" name="" id="" placeholder="Pay" />
         </form>
       </div>
     );
