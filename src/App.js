@@ -23,19 +23,19 @@ class App extends React.Component {
     this.onPay = this.onPay.bind(this);
   }
 
-  onAdd() {
+  selectAdd() {
     this.setState({ activeTab: "add" });
     // this.setState({ onList: "d-none" });
     // this.setState({ onAdd: "d-block" });
   }
 
-  onList() {
+  selectList() {
     this.setState({ activeTab: "list" });
     // this.setState({ onAdd: "d-none" });
     // this.setState({ onList: "d-block" });
   }
 
-  onPay() {
+  selectPay() {
     this.setState({ activeTab: "pay" });
     // this.setState({ onAdd: "d-none" });
     // this.setState({ onList: "d-block" });
@@ -60,19 +60,19 @@ class App extends React.Component {
         <h1>Bakery</h1>
         <Button
           isSelected={this.state.activeTab === "add"}
-          onClick={this.onAdd}
+          onClick={this.selectAdd}
         >
           Add
         </Button>
         <Button
           isSelected={this.state.activeTab === "list"}
-          onClick={this.onList}
+          onClick={this.selectList}
         >
           List
         </Button>
         <Button
           isSelected={this.state.activeTab === "pay"}
-          onClick={this.onPay}
+          onClick={this.selectPay}
         >
           Pay
         </Button>
