@@ -8,10 +8,10 @@ class List extends React.Component {
       <ul className="list-group">
         <li className="border border-2 list-group-item">
           <ul>
-            {this.props.items.maps((item) => {
+            {this.props.items.map((item) => {
               return (
                 <li>
-                  {item.name} - {item.price} euro
+                  {item.name} - {item.price} €
                 </li>
               );
             })}
