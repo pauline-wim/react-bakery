@@ -13,6 +13,7 @@ class Add extends React.Component {
 
     this.updateProductName = this.updateProductName.bind(this);
     this.updatePrice = this.updatePrice.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   updateProductName(e) {
@@ -24,6 +25,11 @@ class Add extends React.Component {
     this.setState({ price: e.target.value });
   }
 
+  handleClick = (e) => {
+    e.preventDefault();
+    this.props.addItem(this.state.productName, this.state.price);
+  };
+
   render() {
     return (
       <form className="form-control">
@@ -34,7 +40,7 @@ class Add extends React.Component {
           placeholder=""
           onChange={this.updateProductName}
         />
-        <button type="submit" onClick={this.props.onClick}>
+        <button type="submit" onClick={this.handleClick}>
           Add
         </button>
         <label htmlFor="range">{this.state.price}</label>

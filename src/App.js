@@ -22,7 +22,6 @@ class App extends React.Component {
     this.selectList = this.selectList.bind(this);
     this.selectPay = this.selectPay.bind(this);
     this.addItem = this.addItem.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
   selectAdd() {
@@ -43,19 +42,6 @@ class App extends React.Component {
     // this.setState({ onList: "d-block" });
   }
 
-  renderTab() {
-    switch (this.state.activeTab) {
-      case "add":
-        return <Add onClick={this.handleClick} />;
-      case "list":
-        return <List />;
-      case "pay":
-        return <Pay />;
-      default:
-        return "Page not found";
-    }
-  }
-
   addItem(name, price) {
     const updatedItems = this.state.items;
     updatedItems.push({ name, price });
@@ -65,9 +51,17 @@ class App extends React.Component {
     console.log(this.state.items);
   }
 
-  handleClick(e) {
-    e.preventDefault();
-    this.addItem("cookie", 2);
+  renderTab() {
+    switch (this.state.activeTab) {
+      case "add":
+        return <Add addItem={this.addItem} />;
+      case "list":
+        return <List />;
+      case "pay":
+        return <Pay />;
+      default:
+        return "Page not found";
+    }
   }
 
   render() {
