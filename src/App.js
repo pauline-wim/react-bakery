@@ -14,8 +14,6 @@ class App extends React.Component {
     this.state = {
       activeTab: "add",
       items: [],
-      productName: "",
-      price: 1,
       // onAdd: "d-none",
       // onList: "d-none",
     };
@@ -24,8 +22,7 @@ class App extends React.Component {
     this.selectList = this.selectList.bind(this);
     this.selectPay = this.selectPay.bind(this);
     this.addItem = this.addItem.bind(this);
-    this.updateProductName = this.updateProductName.bind(this);
-    this.updatePrice = this.updatePrice.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   selectAdd() {
@@ -49,16 +46,7 @@ class App extends React.Component {
   renderTab() {
     switch (this.state.activeTab) {
       case "add":
-        return (
-          <Add
-            onChangeText={this.updateProductName}
-            onChangeRange={this.updatePrice}
-            price={this.state.price}
-            onClick={() => {
-              this.addItem(this.state.productName, this.state.price);
-            }}
-          />
-        );
+        return <Add onClick={this.handleClick} />;
       case "list":
         return <List />;
       case "pay":
@@ -68,22 +56,18 @@ class App extends React.Component {
     }
   }
 
-  updateProductName(e) {
-    this.setState({ productName: e.target.value });
-  }
-
-  updatePrice(e) {
-    this.setState({ price: e.target.value });
-  }
-
   addItem(name, price) {
+    const updatedItems = this.state.items;
+    updatedItems.push({ name, price });
     this.setState({
-      items: {
-        name: name,
-        price: price,
-      },
+      items: updatedItems,
     });
     console.log(this.state.items);
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    this.addItem("cookie", 2);
   }
 
   render() {
