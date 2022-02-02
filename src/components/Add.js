@@ -13,7 +13,7 @@ class Add extends React.Component {
 
     this.updateProductName = this.updateProductName.bind(this);
     this.updatePrice = this.updatePrice.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
   }
 
   updateProductName(e) {
@@ -32,15 +32,20 @@ class Add extends React.Component {
 
   render() {
     return (
-      <form className="form-control">
+      <form>
         <input
+          className="form-control"
           type="text"
-          name=""
-          id=""
-          placeholder=""
+          name="text"
+          id="text"
+          placeholder="Item"
           onChange={this.updateProductName}
         />
-        <button type="submit" onClick={this.handleClick}>
+        <button
+          className="btn btn-dark"
+          type="submit"
+          onClick={this.handleClick}
+        >
           Add
         </button>
         <label htmlFor="range">{this.state.price}</label>

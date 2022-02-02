@@ -5,12 +5,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 class List extends React.Component {
   render() {
     return (
-      <div>
-        <form className={this.props.onList}>
-          <input type="text" name="" id="" placeholder="List" />
-          <input type="text" name="" id="" placeholder="List" />
-        </form>
-      </div>
+      <ul className="list-group">
+        <li className="border border-2 list-group-item">
+          <ul>
+            {this.props.items.maps((item) => {
+              return (
+                <li>
+                  {item.name} - {item.price} euro
+                </li>
+              );
+            })}
+          </ul>
+        </li>
+      </ul>
     );
   }
 }

@@ -56,7 +56,7 @@ class App extends React.Component {
       case "add":
         return <Add addItem={this.addItem} />;
       case "list":
-        return <List />;
+        return <List items={this.state.items} />;
       case "pay":
         return <Pay />;
       default:
